@@ -69,9 +69,36 @@ RANDOM_STATE = 42
 # engine to halt trading if exceeded (for live trading).
 MAX_DAILY_LOSS = 0.025  # 2.5%
 
+# Initial account capital (in account currency). This value is used by the
+# risk engine to compute drawdowns and daily loss thresholds.
+INITIAL_CAPITAL = 100_000.0
+
+# Simulated slippage to apply on each executed trade. Expressed as the price
+# difference (e.g. 0.00001 for 0.1 pip on most forex pairs). Larger values
+# emulate worse fills.
+PAPER_TRADE_SLIPPAGE = 0.00001
+
+# Simulated latency before orders are executed, measured in number of bars. A
+# value of 1 means signals are delayed by one bar before being acted upon.
+PAPER_TRADE_LATENCY = 1
+
+# Maximum trailing drawdown allowed (as a fraction of initial capital). If
+# the equity falls more than this amount below its peak, trading stops.
+MAX_DRAWDOWN = 0.10
+
 ###############################################################################
 # Output and persistence
 ###############################################################################
 
 # Directory where models and backtest results will be saved.
 OUTPUT_DIR = "results"
+
+###############################################################################
+# Telegram alert configuration
+###############################################################################
+
+# Telegram bot token and chat ID for sending alert notifications. Replace
+# these values with your own. Keep these credentials secret and avoid
+# publishing them publicly.
+TELEGRAM_BOT_TOKEN = "7776300177:AAEr79a9Wpg90dUUNcJhpQve4k-0tA2q8eI"
+TELEGRAM_CHAT_ID = "5542080541"
